@@ -15,8 +15,7 @@ const Products = () => {
       setProduct(
         productData.filter((item) => item?.name?.includes(searchItemState))
       );
-      console.log("product", product);
-    }
+     }
   }, [searchItemState, product]);
 
   return (
