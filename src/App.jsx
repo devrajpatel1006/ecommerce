@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
-
+import { ToastContainer } from 'react-toastify';
 import "./App.css";
 import Products from "./components/Product/Products";
 import Cart from "./components/Cart/Cart";
@@ -30,6 +30,7 @@ const App = ()=> {
             </div>
           </section>
         </footer>
+        <ToastContainer />
       </Router>
     </Provider>
   );

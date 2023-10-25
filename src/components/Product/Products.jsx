@@ -2,6 +2,8 @@ import { React, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem } from "../Cart/actions/cartAction";
 import productData from "./Products.fixture";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Products = () => {
   const searchItemState = useSelector((state) => state.search);
@@ -15,6 +17,8 @@ const Products = () => {
       setProduct(
         productData.filter((item) => item?.name?.includes(searchItemState))
       );
+     }else{
+      setProduct(productData);
      }
   }, [searchItemState, product]);
 
@@ -84,6 +88,7 @@ const Products = () => {
                     <a
                       onClick={() => {
                         dispatch(addItem(product));
+                        toast("Item added in the cart!",{position: "bottom-right"})
                       }}
                       className="btn btn-outline-primary w-100"
                     >

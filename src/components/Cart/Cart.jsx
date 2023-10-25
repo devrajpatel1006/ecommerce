@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { deleteItem } from "./actions/cartAction";
 
 import { useSelector, useDispatch } from "react-redux";
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Cart = () => {
   const dispatch = useDispatch();
 
@@ -24,6 +25,12 @@ const Cart = () => {
     (acc, transaction) => acc + transaction.price * transaction.quantity,
     0
   );
+  const handleLinkClick = () => {
+    toast("Order Placed Successfully!",{position: "bottom-right"})
+    setTimeout(()=>{
+      window.location.href = "/";
+    },100) // Replace with your desired URL
+  }
   return (
     <section className="bg-light my-5 ">
       <div className="bg-primary">
@@ -181,7 +188,7 @@ const Cart = () => {
                   </div>
 
                   <div className="mt-3">
-                    <a className="btn btn-success w-100 shadow-0 mb-2" href="/">
+                    <a className="btn btn-success w-100 shadow-0 mb-2" onClick={handleLinkClick}>
                       Make Purchase
                     </a>
                     <a className="btn btn-light w-100 border mt-2" href="/">
