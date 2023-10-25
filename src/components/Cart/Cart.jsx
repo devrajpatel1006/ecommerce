@@ -29,7 +29,7 @@ const Cart = () => {
     toast("Order Placed Successfully!",{position: "bottom-right"})
     setTimeout(()=>{
       window.location.href = "/";
-    },100) // Replace with your desired URL
+    },2000) // Replace with your desired URL
   }
   return (
     <section className="bg-light my-5 ">
